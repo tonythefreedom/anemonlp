@@ -17,7 +17,7 @@ public class example01 {
 	
 	    
         //owl 파일 로드
-		String Owlfile = "/Users/kimtony/Desktop/KnowledgeBase/KnoweledgeBase_construct/Source/KBase/resource/example01.owl";
+		String Owlfile = "/Users/kimtony/workspace/anemonlp/AnemoNLP/KBase/resource/example01.owl";
 	   	OntModel model = ModelFactory.createOntologyModel();
 		model.read(Owlfile);
 	   	

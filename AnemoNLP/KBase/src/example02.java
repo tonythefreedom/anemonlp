@@ -28,12 +28,12 @@ public class example02 {
 	        try { 
 	            
 	        	//Low Data 로드
-	            String fileName = "/Users/kimtony/Desktop/KnowledgeBase/KnoweledgeBase_construct/Source/KBase/resource/company.txt";
+	            String fileName = "/Users/kimtony/workspace/anemonlp/AnemoNLP/KBase/resource/company.txt";
 	            String line = ""; 
 	            BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(fileName),"UTF-8"));
 
 	            //owl 파일 로드
-			   	  String Owlfile = "/Users/kimtony/Desktop/KnowledgeBase/KnoweledgeBase_construct/Source/KBase/resource/example02.owl";
+			   	  String Owlfile = "/Users/kimtony/workspace/anemonlp/AnemoNLP/KBase/resource/example02.owl";
 			   	  OntModel m = ModelFactory.createOntologyModel();
 			   	  m.read(Owlfile);
 			   	  
