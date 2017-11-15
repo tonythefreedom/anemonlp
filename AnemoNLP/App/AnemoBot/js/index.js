@@ -46,10 +46,21 @@ switch (wTextNo) {
 //봇 셋팅
 var botID = "BB-b10-20170909130042-FHzoGxZsbN";
 var userID = "YAnYTaRLEAPymXLvsrwAzxXhre72";
+
+//addGUI_list 테스트
+//var botID = "BB-b10-20171020165606-bOGyqzwQHa";
+//var userID = "TfPsvYESiJPTfOcuc9IMVY3j89m2";
+
+
 var urlAIMLBotStart = "http://35.186.253.168:8080/Sarah/chat?userID="+userID+"&botID="+botID+"&providerID=%20kakao&lang=KO&userKey="+userID+"&run=init&question=1";
 var urlAIMLBotConv = "http://35.186.253.168:8080/Sarah/chat?userID="+userID+"&botID="+botID+"&providerID=kakao&lang=KO&userKey="+userID;
-var chatterbotUrl = "http://35.189.163.55:8082/api/chatterbot/";
+
+var chatterbotUrl = "http://35.194.131.173:8082/api/chatterbot/";
+
+
+// 토님이사님 chatterbot var chatterbotUrl = "http://35.189.163.55:8082/api/chatterbot/";
 //var chatterbotUrl = "http://localhost:8082/api/chatterbot/";
+
 
 $(window).load(function() {
     $messages.mCustomScrollbar();
@@ -86,11 +97,11 @@ function insertMessage() {
     if ($.trim(msg) == '') {
         return false;
     }
-    //중복입력 방지
-    if(test=="false"){
-        //console.log(msg);
-        return null;
-    }
+    /* //중복입력 방지
+     if(test=="false"){
+         //console.log(msg);
+         return null;
+     }*/
 
     $('<div class="message message-personal">' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
     setDate();
@@ -126,10 +137,10 @@ $('.button').click(function(){
 function chatbot_start() {
     if ($('.message-input').val() != '') {
         return null;
-    }//중복입력 방지
+    }/*//중복입력 방지
     else if (test == "false") {
         return null;
-    }
+    }*/
 
     if (!handshaked) {
         //서버 연결 url
@@ -153,6 +164,7 @@ function chatbot_start() {
         contentType: "application/json",
         dataType: "json",
         success: function (data) {
+          //  console.log("data:",data.data);
 
 
             if (data.data == null) {
@@ -193,7 +205,8 @@ function chatbot_start() {
 
                 //UIscript에 유튜브 동영상이 존재하면 if를 수행합니다.
                 if(data.data.message.indexOf("kind") != -1){
-                    // console.log("data:"+data.data.message.indexOf("kind"));
+
+                   //  console.log("data:"+data.data.message.indexOf("kind"));
                     //유튜브 동영상 message를 변수에 저장합니다.
                     var video_list = data.data.message;
 
@@ -252,19 +265,32 @@ function chatbot_start() {
                     }, 1000);
                 }
 
+
                 //UIscript 가 존재 하면 if를 수행합니다.
-                if (data.data.uiScript != undefined) {
-                    var uiScript_type = data.data.uiScript.type;
-                    var uiScript_content = data.data.uiScript.uiScript;
+                if (data.data.uiScriptArray != undefined) {
+
+                    //이미지 값을 저장한 배열 초기화
+                    // console.log("초기화",listMeuns[1]);
+                    //listMeuns = [];
+
+                    var uiScriptArray_length= data.data.uiScriptArray.length;
+                   // console.log(uiScriptArray_length);
+
+                    //ui for 진행
+                    for(var j=0; j< uiScriptArray_length; j++){
+
+                        var uiScript_type = data.data.uiScriptArray[j].type;
+                       // console.log(uiScript_type);
+                        var uiScript_content = data.data.uiScriptArray[j].uiScript;
+                       // console.log(uiScript_content);
+
+
 
 
                     //카로셀 함수
                     if (uiScript_type == "cardMenu") {
                         //uiScript_content 파싱
                         var uiScript_content_card = JSON.parse(uiScript_content);
-                        //이미지 값을 저장한 배열 초기화
-                        // console.log("초기화",listMeuns[1]);
-                        listMeuns = [];
 
                         //id 값이 겹치지 않게 생성함 새로고침하면 0초기화
                         num = num + 1;
@@ -313,9 +339,7 @@ function chatbot_start() {
 
                         //uiScript_content 파싱
                         var uiScript_content_list = JSON.parse(uiScript_content);
-                        //이미지 값을 저장한 배열 초기화
-                        // console.log("초기화",listMeuns[1]);
-                        listMeuns = [];
+
                         //id 값이 겹치지 않게 생성함 새로고침하면 0초기화
                         num = num + 1;
 
@@ -326,14 +350,18 @@ function chatbot_start() {
                         for (var i = 0; i < uiScript_content_list.options.length; i++) {
                             // console.log(num);
 
+
                             if (uiScript_content_list.options[i].type == "LINK") {
                                 $('<a  href=' + uiScript_content_list.options[i].id + ' target="_blank" ><img class="list_img" src=' + uiScript_content_list.options[i].filename + '>' + uiScript_content_list.options[i].text + '</div></a><br/>').appendTo($('#listview' + num));
                                 updateScrollbar();
+
+
 
                             } else {
                                 $('<a  href="javascript:void(0)" onclick="uiScript_msg(id);" id=list' + i + ' ><img class="list_img" src=' + uiScript_content_list.options[i].filename + '>' + uiScript_content_list.options[i].text + '</div></a><br/>').appendTo($('#listview' + num));
                                 updateScrollbar();
                                 listMeuns[i] = uiScript_content_list.options[i].id;
+
                             }
 
                         }
@@ -342,11 +370,10 @@ function chatbot_start() {
 
                     //버튼 메뉴
                     if (uiScript_type == "button") {
+                        //  console.log('sdfdsfsdf');
                         //uiScript_content 파싱
                         var uiScript_content_button = JSON.parse(uiScript_content);
-                        //이미지 값을 저장한 배열 초기화
-                        // console.log("초기화",listMeuns[1]);
-                        listMeuns = [];
+
                         //id 값이 겹치지 않게 생성함 새로고침하면 0초기화
                         num = num + 1;
 
@@ -365,6 +392,7 @@ function chatbot_start() {
                                 $('<a  href="javascript:void(0)" onclick="uiScript_msg(id)" id=button' + i + '><div class="button_list" align="center">' + uiScript_content_button.options[i].text + '</div></a>').appendTo($('#buttonview' + num));
                                 updateScrollbar();
                                 listMeuns[i] = uiScript_content_button.options[i].id;
+
                             }
                         }
                     }
@@ -373,7 +401,6 @@ function chatbot_start() {
                     //사용자 UI 메뉴
                     if (uiScript_type == "customGUI") {
 
-                        console.log("사용자 UI" + uiScript_content);
 
                         $('.message.loading').remove();
                         $('<div class="message new">' + uiScript_content + '</div>').appendTo($('.mCSB_container')).addClass('new');
@@ -384,6 +411,9 @@ function chatbot_start() {
 
 
                 } //uiscript를 출력하는 함수의 끝
+
+                }
+
             } //메시지를 출력하는 함수 끝
 
             test = "true";
@@ -449,12 +479,16 @@ function openMail(personName) {
 function uiScript_msg(id) {
     //console.log("listMeun에서 받아온 값:"+  id);
     // console.log("test: ", $('#0').text());
+
     if(id.indexOf("list") !=-1){
+          //  console.log('test', hh);
         var hh = id.replace( "list", ""); }
     else if(id.indexOf("button") !=-1){
+       // console.log('test', hh);
         var hh = id.replace( "button", "");
     }
     else if(id.indexOf("card") !=-1){
+       // console.log('test', hh);
         var hh = id.replace( "card", "");
     }
 
