@@ -1,3 +1,6 @@
+All tutorials and APIs of Chatterbot are here http://chatterbot.readthedocs.io/en/stable/
+This subset project of Chatterbot is going to add adapters for generating knowledge base in Korean automatically.
+
 Copyright (c) 2016 - 2017, Gunther Cox
 All rights reserved.
 
