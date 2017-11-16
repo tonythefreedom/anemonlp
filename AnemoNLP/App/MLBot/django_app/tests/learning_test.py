@@ -4,15 +4,6 @@ import os
 import time
 
 from chatterbot import ChatBot
-
-#sys.path("/home/dss/lib/python2.7")
-
-os.remove("/home/dss/chatterbot/django_app/db.sqlite3")
-
-os.remove("/home/dss/chatterbot/django_app/db.sqlite3-shm")
-
-#os.remove("/home/dss/chatterbot/django_app/db.sqlite3-wal")
-
 chatbot = ChatBot(
             'tony bot 01',
             logic_adapters=[
