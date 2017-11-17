@@ -1,0 +1,15 @@
+group 'Anemo'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.apache.jena', name: 'jena', version: '3.5.0', ext: 'pom'
+    compile group: 'org.apache.jena', name: 'jena-arq', version: '3.5.0'
+}
