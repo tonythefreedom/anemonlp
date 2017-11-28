@@ -93,7 +93,7 @@ class ChatterBotView(View):
         )
 
         # Train based on the english corpus
-        #chatbot.train("/Users/kimtony/Desktop/corpus/")
+        chatbot.train("/Users/kimtony/workspace/anemonlp/AnemoNLP/App/MLBot/chatterbot/corpus")
 
         #conversation = self.get_conversation(request)
 
