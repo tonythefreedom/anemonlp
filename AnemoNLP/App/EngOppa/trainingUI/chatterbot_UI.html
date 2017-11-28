@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+    html,body,h1,h2,h3,h4,h5 {font-family: "RobotoDraft", "Roboto", sans-serif;}
+    .w3-bar-block .w3-bar-item{padding:16px}
+</style>
+
+
+<body>
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-white w3-animate-left w3-card-2" style="z-index:3;width:320px;" id="mySidebar">
+
+    <a href="javascript:void(0)" onclick="menu_close()" title="Close Sidemenu"
+       class="w3-bar-item w3-button w3-hide-large w3-large">Close <i class="fa fa-remove"></i></a>
+
+
+    <!-- 메뉴 동작 함수를 부르는 부분-->
+    <a id="myBtn" onclick="menu_func('menu_list')" href="javascript:void(0)" class="w3-bar-item w3-button">
+        <i class="fa fa-inbox w3-margin-right"></i>파일명 입력<i class="fa fa-caret-down w3-margin-left"></i></a>
+
+
+
+
+
+    <div id="menu_list" class="w3-hide w3-animate-left">
+
+        <!--파일 입력란-->
+        <div class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey"  >
+            <div class="w3-container">
+                <a   onclick="menu_add()" class="add_link"><img  class="plus_view" src="img/img1.png"/></a>
+                <input class="menu_list_add"  type="text" placeholder="파일명을 추가해주세요" onchange="menu_add()">
+             </div>
+        </div>
+
+
+    </div>
+</nav>
+
+
+
+<!-- Overlay effect when opening the side navigation on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="menu_close()" style="cursor:pointer" title="Close Sidemenu" id="myOverlay"></div>
+
+<!-- Page content -->
+<div class="w3-main" style="margin-left:320px;">
+    <i class="fa fa-bars w3-button w3-white w3-hide-large w3-xlarge w3-margin-left w3-margin-top" onclick="menu_open()"></i>
+
+     <a href="javascript:void(0)" class="w3-red w3-button w3-right w3-margin-top w3-margin-right" onclick="data_json();"><i class="fa fa-pencil"></i></a>
+
+    <div class="chat_list "></div>
+
+</div>
+
+
+
+<div id="id01" class="w3-modal" style="z-index: 4; display: none;">
+    <div class="w3-modal-content w3-animate-zoom">
+        <div class="w3-container w3-padding w3-red">
+            <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-red w3-right w3-xxlarge"><i class="fa fa-remove"></i></span>
+            <h2>파일명 수정</h2>
+        </div>
+        <div class="w3-panel">
+            <input id="file_change_input"class="w3-input w3-border w3-margin-bottom" type="text">
+
+            <div class="w3-section">
+                <a class="w3-button w3-red w3-right" onclick="file_delete();">삭제 &nbsp;<i class="fa fa-remove"></i></a>
+                <a class="w3-button w3-light-grey " onclick="menu_change();">수정 &nbsp;<i class="fa fa-paper-plane"></i></a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<link rel="stylesheet" href="./css/w3css.css">
+<!--상단 아이콘을 불러온다.-->
+<link href='https://fonts.googleapis.com/css?family=RobotoDraft' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./css/bootstrap_3.3.5.css">
+<script src="js/jquery_3.1.0.js"></script>
+
+<!--내가 수정한 파일-->
+<script src="js/chatterbot_UI.js"></script>
+<link rel="stylesheet" href="./css/chatterbot_UI.css">
+</body>
+</html>

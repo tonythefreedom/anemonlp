@@ -85,7 +85,7 @@ class ChatterBotView(View):
                 },
                 {
                     'import_path': 'chatterbot.logic.LowConfidenceAdapter',
-                    'threshold': 0.33,
+                    'threshold': 0.5,
                     'default_response': u'그 질문에 대해서는 내가 대답해 줄 수 있는 게 없어. || 해당 질문에 대답하기를 원한다면 다음 링크를 통해서 너의 의견을 제안해 주면 고맙겠어. || <a href="http://35.189.163.55:8080/anemo/trainingUI/chatterbot_UI.html">임시 학습 페이지 링크</a>'
                 }
             ],
@@ -93,7 +93,7 @@ class ChatterBotView(View):
         )
 
         # Train based on the english corpus
-        chatbot.train("/Users/kimtony/workspace/anemonlp/AnemoNLP/App/MLBot/django_app/example_app/corpus")
+        ##chatbot.train("/Users/kimtony/workspace/anemonlp/AnemoNLP/App/MLBot/django_app/example_app/corpus")
 
         #conversation = self.get_conversation(request)
 
