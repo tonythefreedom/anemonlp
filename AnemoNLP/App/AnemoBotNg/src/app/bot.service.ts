@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { MalihuScrollbarService } from 'ngx-malihu-scrollbar';
 import * as $ from 'jquery';
 
 @Injectable()
@@ -45,11 +46,23 @@ export class BotService {
 
     chatterbotUrl = "http://35.194.131.173:8082/api/chatterbot/";
 
+    constructor(
+        private mScrollbarService: MalihuScrollbarService
+    ) {}
+
     updateScrollbar() {
+
+        this.mScrollbarService.initScrollbar('.messages-content', {
+            axis: 'y',
+            theme: 'dark-thick',
+            scrollButtons: { enable: true }
+        });
+        
         // this.$messages.mCustomScrollbar("update").mCustomScrollbar('scrollTo', 'bottom', {
         //   scrollInertia: 10,
         //   timeout: 0
         // });
+        console.log("updateScrolling");
     }
 
     testing() {
@@ -64,30 +77,6 @@ export class BotService {
             $('<div class="checkmark-sent-delivered">&check;</div>').appendTo($('.message:last'));          //메시지 화살표 이미지
             $('<div class="checkmark-read">&check;</div>').appendTo($('.message:last'));                   //메시지 화살표 이미지
         }
-    }
-
-    insertMessage() {
-        // user에게 입력받은 값
-        this.msg = $('.message-input').val();
-        //console.log(msg);
-
-        //입력받은 값의 공백을 제거
-        if ($.trim(this.msg) == '') {
-            return false;
-        }
-        /* //중복입력 방지
-          if(test=="false"){
-              //console.log(this.msg);
-              return null;
-          }*/
-
-        $('<div class="message message-personal">' + this.msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
-        this.setDate();
-        $('.message-input').val(null);
-        this.updateScrollbar();
-        setTimeout(function () {
-            // chatbot_start();
-        }, 1);
     }
 
 }
