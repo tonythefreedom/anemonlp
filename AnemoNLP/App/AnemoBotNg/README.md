@@ -1,5 +1,12 @@
 # AnemoBotNg
 
+Feel FREE to modify codes.
+It would be thankful if you solve these TODOs:
+    (bot.service.ts:57) initialization on constructor() seems anti-pattern. find a way to act like ngOnInit() on Service.
+    (bot.service.ts:104) apply this using mScrollbarService:
+
+100kimch / Kimjihyeong100@gmail.com
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.5.
 
 ## Development server
