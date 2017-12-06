@@ -1,4 +1,4 @@
-<body (load)="chat_view('hide1')" ng-init="chatbot_start();">
+<body (load)="chat_view('hide1')" ng-init="">
 
   <div id="hide1" style="display:none">
     <div class="avenue-messenger person" id="aa">
@@ -42,9 +42,9 @@
 
         <!--채팅 입력창-->
         <div class="message-box">
-          <textarea type="submit" class="message-input" placeholder="Type message..."></textarea>
+          <textarea type="submit" class="message-input" [placeholder]="blank_msg" (keypress)="onKeypress($event)"></textarea>
           <!-- <img src="../assets/img/img1.png" (click)="chatbot_speech_start();" > -->
-          <button type="submit" class="message-submit">Send</button>
+          <button type="submit" class="message-submit" (click)="insert_message()">Send</button>
         </div>
 
       </div>
@@ -122,7 +122,7 @@ img2 ="http://daum.com";
 
 
 
-  <div (click)="chat_view('hide1');chatbot_start();" id="hide2">
+  <div (click)="chat_view('hide1');" id="hide2">
 
 
     <div style="background-color:black;/**/ width: 180px; height:40px; position: absolute; top:95%; left:90%; border-style: solid;">
