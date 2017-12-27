@@ -13,7 +13,7 @@ SECRET_KEY = 'fsch+6!=q+@ol&%0x!nwdl@48^ixbd4clx5f1i!5n^66y+pmn*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['35.189.163.55','localhost','127.0.0.1','130.211.252.226', '35.194.131.173']
+ALLOWED_HOSTS = ['35.189.163.55','localhost','127.0.0.1','130.211.252.226', '35.194.131.173', '13.125.102.134']
 
 
 # Application definition
@@ -56,6 +56,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 CORS_ORIGIN_WHITELIST = (
+    'http://13.125.102.134:8082'
     'localhost:8000',
     'localhost:8082',
     'localhost:8080',
