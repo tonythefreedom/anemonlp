@@ -1,0 +1,71 @@
+header {
+  height: 100px;
+  /* background: linear-gradient(#3a5899, #4b69aa); */
+  background-image: url('../../assets/images/img/pattern.png');
+  background-size: 100px;
+  margin-bottom: 30px;
+  z-index: 1;
+}
+
+#back{
+  display: inline-block;
+  width: 4em;
+  height: 4em;
+  background: url('../../assets/images/img/back.svg');
+  background-size: 2em;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  outline: none;
+  padding: 0.6em 0.7em 0.9em 0.7em;
+}
+
+#title {
+  padding: 2.5em 10vw 1.7em 10vw;
+}
+
+#title button {
+  float: left;
+}
+
+#title h1 {
+  display: inline-block;
+  font-family: 'Nanum Brush Script', '맑은 고딕', '고딕', Arial;
+  font-size: 4em;
+  font-weight: 500;
+  color: white;
+  margin: 0;
+  padding: 0;
+  text-shadow: 0 0 0.3em #111;
+}
+
+#title span {
+  font-size: 1.3em;
+  color: #fff;
+  height: fit-content;
+  margin: 1.3em 0 1.3em 1em;
+  text-shadow: 0 0 0.3em #111;  
+  float: right;
+}
+
+#title button {
+  margin-left: -2.5em;
+}
+
+#loginStatus {
+  display: block;
+  width: 100vw;
+  margin: 0;
+  padding: 0.7em 0;
+  font-size: 14px;
+  text-align: center;
+  transform: rotate(-3deg);
+  color: #ccc;
+  background: #567aaa;
+
+}
+
+#loginStatus h4 {
+  margin: 0;
+  padding: 0;
+}

@@ -1,0 +1,33 @@
+<!--<div class="media conversation">
+  <div class="pull-left">
+    <img class="media-object avatar"
+         src="{{thread.avatarSrc}}">
+  </div>
+  <div class="media-body">
+    <h5 class="media-heading contact-name">{{thread.name}}
+      <span *ngIf="selected">&bull;</span>
+    </h5>
+    <small class="message-preview">{{thread.lastMessage.text}}</small>
+  </div>
+  <a (click)="clicked($event)" class="div-link">Select</a>
+
+</div>
+-->
+<section  class="{{thread.class1}}" >
+  <svg class="botSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <polygon class="botBoxOuter" [attr.points]="thread.codevale1" />
+    <polygon class="botBoxInner" [attr.points] ="thread.codevale2" />
+  </svg>
+
+
+  <div class="botBox">
+    <img src="{{thread.avatarSrc}}"/>
+    <div>
+      <h3>{{thread.name}}</h3>
+        <!-- <span *ngIf="selected">&bull;</span> -->
+      
+      <small>{{thread.lastMessage.text}}</small>
+      <button style="display: block!important; background-color: black!important;" (click)="clicked($event)"> Select</button>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,277 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    margin-left: -10vw;
+  }
+  100% {
+    opacity: 1;
+    margin-left: 0;
+  }
+}
+
+
+#bg {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: url('../../assets/images/img/bg1.png');
+    background-size: 200vw auto;
+    background-position: center -162px;
+    z-index: -2;
+}
+
+#bot {
+    position: absolute;
+    width: 100vw;
+    height: 50vh;
+    bottom: 96px;
+    text-align: center;
+    vertical-align: bottom;
+
+    background-size: 100vw auto;
+    transition: 1s;
+
+    animation: fadeIn 1.5s 0s linear 1;
+    -webkit-animation-fill-mode:forwards; /*Chrome 16+, Safari 4+*/
+    -moz-animation-fill-mode:forwards; /*FF 5+*/
+    -o-animation-fill-mode:forwards; /*Not implemented yet*/
+    -ms-animation-fill-mode:forwards; /*IE 10+*/
+    animation-fill-mode:forwards; /*when the spec is finished*/
+}
+
+#bot.left {
+    left: -10vw;
+}
+
+#bot img {
+  width: 50vh;
+  height: 50vh;
+
+}
+
+ul {
+    position: absolute;
+    width: 100vw;
+    bottom: 80px;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    text-align: center;
+}
+li {
+    display: inline-block;
+    width: auto;
+    padding: 1.3em 2em;
+    margin: 0 0.5em;
+    background: #ddddddee;
+    font-size: 1.3em;
+    border-radius: 1.3em;
+    background: url('../../assets/images/img/bubble.svg');
+    background-size: 100%;
+}
+li:after, li:before {
+	top: 100%;
+    left: 75%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+li:after {
+	border-color: rgba(136, 183, 213, 0);
+	border-top-color: #a7c9f5dd;
+    border-width: 20px;
+    border-right-width: 30px;
+    border-left-width: 10px;
+	margin-left: -20px;
+}
+li:before {
+	border-color: rgba(194, 225, 245, 0);
+	border-top-color: #567aaa;
+	border-width: 26px;
+    border-right-width: 36px;
+    border-left-width: 16px;
+	margin-left: -26px;
+}
+
+
+ul.more {
+    position: absolute;
+    bottom: 50px;
+    right: 5vw;
+    height: 45vh;
+    overflow: scroll;
+}
+li.more {
+    width: 20vw;
+    min-height: 2em;
+    /* background: #dddddddd; */
+    margin: 0.5em 0;
+    padding: 1em;
+    font-size: 1.5em;
+    font-weight: 900;
+    list-style: none;
+    text-align: center;
+    text-shadow: 0 0 0.3em #111;
+}
+
+
+
+
+/********************************/
+
+#inputBox {
+  position: absolute;
+  bottom: 0;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 50px;
+  background: url('../../assets/images/img/pattern.png');
+  padding: 0.5em 1em;
+}
+
+#whiteBox {
+  border-radius: 0.5em;
+  background: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+#whiteBox input {
+  flex: 1;
+  border: none;
+  font-family: 'Nanum Gothic';
+  margin: 0.3em 0.5em;
+  padding: 0 0.5em;
+  font-size: 1.7em;
+  outline: none;
+}
+
+#whiteBox button {
+  width: auto;
+  background: #2e4b8a;
+  color: white;
+  border: none;
+  border-radius: 0.5em;
+  padding: 0.5em 1em;
+  margin: 0.3em 0.5em;
+  float: right;
+}
+
+
+
+@keyframes pop {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes answering {
+  70% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+#botBalloon {
+  display: inline;
+  position: absolute;
+  min-width: 90vw;
+  max-width: 90vw;
+  text-align: center;
+  vertical-align: middle;
+  top: 160px;
+  left: 5vw;
+  background: #a7c9f5dd;
+  border: 4px solid #567aaa;
+  border-radius: 1em;
+  padding: 0.6em 1em;
+  box-sizing: border-box;
+  font-size: 1.9em;
+  font-weight: bolder;
+  color: #1a4379;
+  line-break: keep-all;
+  -webkit-line-break: normal;
+  line-height: 1.3em;
+  text-shadow: 0 0 0.2em #ffffff;
+  transform: scale(0);
+
+  animation: pop 0.5s 2s linear 1;
+  -webkit-animation-fill-mode:forwards; /*Chrome 16+, Safari 4+*/
+  -moz-animation-fill-mode:forwards; /*FF 5+*/
+  -o-animation-fill-mode:forwards; /*Not implemented yet*/
+  -ms-animation-fill-mode:forwards; /*IE 10+*/
+  animation-fill-mode:forwards; /*when the spec is finished*/
+}
+#botBalloon:after, #botBalloon:before {
+  top: 100%;
+  left: 75%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+#botBalloon:after {
+  border-color: rgba(136, 183, 213, 0);
+  border-top-color: #a7c9f5dd;
+  border-width: 20px;
+  border-right-width: 30px;
+  border-left-width: 10px;
+  margin-left: -20px;
+}
+#botBalloon:before {
+  border-color: rgba(194, 225, 245, 0);
+  border-top-color: #567aaa;
+  border-width: 26px;
+  border-right-width: 36px;
+  border-left-width: 16px;
+  margin-left: -26px;
+}
+
+#botBalloon.answer {
+  top: 180px;
+
+  animation: answering 0.5s 2s linear 1;
+  -webkit-animation-fill-mode:forwards; /*Chrome 16+, Safari 4+*/
+  -moz-animation-fill-mode:forwards; /*FF 5+*/
+  -o-animation-fill-mode:forwards; /*Not implemented yet*/
+  -ms-animation-fill-mode:forwards; /*IE 10+*/
+  animation-fill-mode:forwards; /*when the spec is finished*/
+}
+
+#previousChat {
+  display: inline;
+  position: absolute;
+  background: #eeeeeecc;
+  padding: 0.6em 1em;
+  top: 140px;
+  left: 5vw;
+  font-size: 1.3em;
+  border-radius: 10px;
+  border: 2px solid #ffffff66;
+  opacity: 0;
+  transition: 1s;
+}
+#previousChat.show {
+  opacity: 1;
+}

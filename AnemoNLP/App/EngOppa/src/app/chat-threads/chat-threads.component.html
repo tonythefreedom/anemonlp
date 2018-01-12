@@ -1,0 +1,28 @@
+<app-header></app-header>
+
+<svg>
+  <defs>
+    <linearGradient id="Gradient1">
+      <stop class="stop1" stop-color="#fff" offset="0%"></stop>
+    </linearGradient>
+    <linearGradient id="Gradient2" x1="0" x2="0" y1="0" y2="1">
+      <stop class="stop2" stop-color="#568" offset="0%"></stop>
+      <stop class="stop3" stop-color="#346" offset="100%"></stop>
+    </linearGradient>
+    <pattern id="pattern1" patternUnits="userSpaceOnUse" width="100" height="100">
+      <image xlink:href="../../assets/images/img/pattern.png" x="0" y="0" width="100" height="130" />
+    </pattern>
+  </defs>
+</svg>
+
+
+<!-- conversations -->
+<div class="row">
+  <div class="conversation-wrap">
+    <chat-thread *ngFor="let thread of threads | async"
+            [thread]="thread">
+    </chat-thread>
+  </div>
+</div>
+
+<app-footer></app-footer>

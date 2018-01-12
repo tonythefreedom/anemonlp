@@ -1,0 +1,15 @@
+<app-header></app-header>
+<div id="bg"></div>
+<div id="previousChat">{{addmsg}}</div>
+<div id="botBalloon" > {{addmsg}}</div>
+
+<div id="bot">
+ <img src="{{currentThread.avatarSrc}}"/>
+</div>
+
+<div id="inputBox">
+  <div id="whiteBox">
+    <input type="text" id="texts"  [(ngModel)]="draftMessage.text" (keydown.enter)="onEnter($event)"/>
+    <button id="submit" (click)="onEnter($event)">전송</button>
+  </div>
+</div>

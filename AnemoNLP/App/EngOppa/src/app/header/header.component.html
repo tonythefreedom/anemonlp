@@ -1,0 +1,11 @@
+<header>
+  <section id="title">
+    <button *ngIf="this.router.url !== '/main'" id="back" (click)="goto('/main');"></button>
+    <h1>공대오빠 </h1>
+    <span id="logout" *ngIf="user" (click)="SignOut()">로그아웃</span>
+    <span id="history" (click)="clicked($event)">히스토리</span>
+  </section>
+  <section id="loginStatus">
+      <h4 *ngIf="user">{{user.displayName}} 회원님 환영합니다!</h4>
+  </section>
+</header>

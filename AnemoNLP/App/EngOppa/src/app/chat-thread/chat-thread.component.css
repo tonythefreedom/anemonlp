@@ -1,0 +1,173 @@
+#back {
+  opacity: 0;
+}
+
+.botBoxInner {
+  fill: url(#Gradient1);
+  transition: height 1s, fill 0.5s;
+  -webkit-transition: height 1s, fill 0.5s;
+  -moz-transition: height 1s, fill 0.5s;
+  -o-transition: height 1s, fill 0.5s;
+}
+
+.botBoxOuter {
+  fill: #2e4b8a;
+}
+
+@keyframes hovershow {
+  0% {
+    fill: #fff;
+  }
+  100% {
+    fill: #23304d;
+  }
+}
+
+Svg {
+  transition: width 0.5s ease, height 1s ease, margin 1s ease;
+}
+
+.b1 Svg {
+  width: 94vw;
+  height: 25vh;
+  margin: 0 2vw 0 4vw;
+}
+
+.b2 Svg {
+  width: 94vw;
+  height: 27vh;
+  margin: -2vh 4vw 0 2vw;
+}
+
+.b3 Svg {
+  width: 94vw;
+  height: 27vh;
+  margin: -2vh 2vw 0 4vw;
+}
+/*
+.b1 .botBoxInner, .b3 .botBoxInner {
+  fill: linear-gradient(#cfcfcf, #aaa);
+}
+
+.b2 .botBoxInner {
+  fill: #c5b2f5;
+}
+
+.b2 .botBoxOuter {
+  fill: #462e8a;
+} */
+
+.botBox {
+  width: 94vw;
+  height: 25vh;
+  margin: 0px 2vw;
+  /* border: 1vw solid #333; */
+  color: #1c2e55;
+  transition: color 1s ease;
+}
+
+.botBox>* {
+  position: relative;
+  z-index: 2;
+}
+
+.botBox img {
+  width: 25vh;
+}
+
+.b1 .botBox img {
+  float: left;
+  margin-left: 5vw;
+  clip-path: polygon(0 0, 100% 0, 100% 98%, 0 93%);
+}
+
+.b2 .botBox img {
+  float: right;
+  margin-right: 5vw;
+  clip-path: polygon(0 0, 100% 0, 100% 93%, 0 98%);
+}
+
+.b3 .botBox img {
+  float: left;
+  margin-left: 5vw;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 93%);
+}
+
+.b1 .botBox>div {
+  padding: calc(0.7*5vh) 0 0 0;
+}
+
+.b2 .botBox>div {
+  padding: calc(0.7*3vh) 0 0 1.4em;
+}
+
+.b3 .botBox>div {
+  padding: calc(0.7*3vh) 0 0 0;
+}
+
+.botBox h2,
+.botBox h3 {
+  display: inline-block;
+  padding: 0 0.3em;
+}
+
+@media only screen and (max-width: 338px) {
+  .botBox h2 {
+    margin: 0;
+  }
+
+  .botBox h3 {
+    margin: 0.3em 0;
+  }
+}
+
+.botBox p {
+  margin-top: 0;
+  line-height: 130%;
+}
+
+.botBox button {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  font-size: 1.2em;
+  outline: none;
+  display: none;
+}
+.botBox button:focus {
+  color: #2e4b8a;
+  background: white;
+}
+
+.selected Svg {
+  width: 100vw;
+  height: 32vh;
+  margin: -4vh 0 0 0;
+  z-index: 4;
+}
+
+.selected .botBoxInner {
+  /* fill: url(#Gradient2); */
+  height: 30%;
+  animation: hovershow 1s ease;
+  animation-fill-mode: forwards;
+}
+
+
+.selected .botBox {
+  color: white;
+}
+
+.selected .botBox * {
+  z-index: 5;
+}
+
+.selected .botBox p {
+  display: none;
+}
+
+.selected .botBox button {
+  display: block;
+  padding: 0.3em 1em;
+
+}

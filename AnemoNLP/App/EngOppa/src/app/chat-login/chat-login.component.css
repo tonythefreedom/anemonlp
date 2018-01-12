@@ -1,0 +1,21 @@
+#logins {
+  width: calc(100vw - 6em);
+  margin: 2em 3em;
+  box-sizing: border-box;
+}
+
+button {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 1em 3em;
+  border: none;
+  border-radius: 3em;
+  color: #3556a8;
+  background: #ffffffcc;
+  font-size: 2em;
+}
+
+button + button {
+  margin-top: 1em;
+}

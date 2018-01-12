@@ -1,0 +1,29 @@
+#footerSvg {
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: calc(27vh - 130px);
+  /* min-height: 70px; */
+  z-index: 0;
+}
+
+#footerInner {
+  fill: #2e4b8a;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  text-align: center;
+  margin: 0;
+  padding: 0 0 0.5em 0;
+  background: #2e4b8a;
+  /* background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)); */
+  color: white;
+  z-index: 3;
+}
+
+footer p {
+  margin: 0;
+}
